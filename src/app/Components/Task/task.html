@@ -5,19 +5,19 @@
   <!-- Task Title -->
   <div class="form-group">
     <label>Task Title</label>
-    <input type="text" placeholder="Enter task title">
+    <input type="text" placeholder="Enter task title" [(ngModel)] = "title">
   </div>
 
   <!-- Description -->
   <div class="form-group">
     <label>Description</label>
-    <textarea placeholder="Enter description"></textarea>
+    <textarea placeholder="Enter description" [(ngModel)]="description" ></textarea>
   </div>
 
   <!-- Priority -->
   <div class="form-group">
     <label>Priority</label>
-    <select>
+    <select [(ngModel)]="Priority">
       <option>Low</option>
       <option>Medium</option>
       <option>High</option>
@@ -27,13 +27,13 @@
   <!-- Due Date -->
   <div class="form-group">
     <label>Due Date</label>
-    <input type="date">
+    <input type="date" [(ngModel)]="Date">
   </div>
 
   <!-- Category -->
   <div class="form-group">
     <label>Category</label>
-    <select>
+    <select [(ngModel)]="category">
       <option>Work</option>
       <option>Personal</option>
       <option>Study</option>
@@ -43,10 +43,10 @@
   <!-- Tags -->
   <div class="form-group">
     <label>Tags</label>
-    <input type="text" placeholder="Enter tags">
+    <input type="text" placeholder="Enter tags" [(ngModel)]="tags">
   </div>
 
   <!-- Button -->
-  <button type="button">Add Task</button>
+  <button type="button" (click)="add()">Add Task</button>
 
 </div>
