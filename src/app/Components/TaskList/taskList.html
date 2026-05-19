@@ -1,1 +1,41 @@
-<h1>taskList</h1>
+<button (click)="DisplayAllTasks()" >All Tasks</button>
+<button (click)="DisplayDone()" >Done</button>
+<button (click)="DisplayNotDone()" >NOt dONE</button>
+
+
+@for (task of displayedTasks; track task.title) {
+
+<div class="task-card">
+
+    <h2>
+        <p><strong>Title:</strong></p>
+        <input type="text" readonly [(ngModel)]="task.title">
+    </h2>
+
+    <p><strong>Description:</strong></p>
+    <input type="text" [(ngModel)]="task.description">
+
+    <p><strong>Category:</strong></p>
+    <input type="text" [(ngModel)]="task.category">
+
+    <p><strong>Tags:</strong></p>
+    <input type="text" [(ngModel)]="task.tags">
+
+    <p><strong>Date:</strong></p>
+    <input type="text" [(ngModel)]="task.Date">
+
+    <p><strong>Priority:</strong></p>
+    <input type="text" [(ngModel)]="task.Priority">
+
+    <p>
+        <strong>Status:</strong>
+        {{ task.done ? 'Done ✅' : 'Not Done ❌' }}
+    </p>
+
+    <button (click)="Done(task)">Done</button>
+    <button (click)="Update(task)">Save Update</button>
+    <button (click)="Delete(task)">Delete</button>
+
+</div>
+
+}

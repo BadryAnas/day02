@@ -1,2 +1,2 @@
-<task></task>
-<taskList> </taskList>
+<task (sendTask)="AllTasks($event)"></task>
+<taskList [AllTasks]="Tasks" (sendUpdatedDataToParent)="UpdateTask($event)" (sendDeletedDataToParent)="DeleteTask($event)" > </taskList>

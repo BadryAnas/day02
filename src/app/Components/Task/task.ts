@@ -1,4 +1,4 @@
-import { Component, createNgModule } from "@angular/core";
+import { Component, createNgModule, EventEmitter, Output, output } from "@angular/core";
 import { createLinkedSignal } from "@angular/core/primitives/signals";
 import { FormsModule } from "@angular/forms";
 
@@ -18,6 +18,10 @@ export class Task
     tags : string = ''
     Date : string = ''
     Priority : string = ''
+    done : boolean = false
+
+    @Output()
+    sendTask = new EventEmitter()
 
     add()
     {
@@ -27,12 +31,16 @@ export class Task
             category: this.category,
             tags : this.tags,
             Date :  this.Date,
-            Priority :this.Priority   
+            Priority :this.Priority ,  
+            done : this.done
         }
+        
         this.objs.push(obj)
         console.log(this.objs)
+        this.sendTask.emit(obj)
     }
 
+    
 
 
 }
