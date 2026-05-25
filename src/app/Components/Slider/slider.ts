@@ -29,7 +29,8 @@ export class Slider implements ISlider {
 
     }
 
-    init()
+
+    ngOnInit()
     {
         this.state = setInterval(() => {
             this.cur++;
@@ -41,9 +42,26 @@ export class Slider implements ISlider {
         }, 2000);
     }
 
-    stop(){
+    ngOnDestroy()
+    {
         clearInterval(this.state);
     }
+    
+    // init()
+    // {
+    //     this.state = setInterval(() => {
+    //         this.cur++;
+
+    //         if (this.cur >= this.images.length) {
+    //             this.cur = 0;
+    //         }
+
+    //     }, 2000);
+    // }
+
+    // stop(){
+    //     clearInterval(this.state);
+    // }
 
     nextImage() {
         this.cur++;
