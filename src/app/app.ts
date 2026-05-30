@@ -8,7 +8,7 @@ import { TaskProject } from "./Components/TaskProject/taskProject";
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [Header, Slider, TaskProject]
+  imports: [Header, Slider, TaskProject, RouterOutlet]
 })
 export class App {
   protected readonly title = signal('day02');
