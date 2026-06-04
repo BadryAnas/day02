@@ -1,0 +1,66 @@
+<h2>Sign Up</h2>
+
+<form [formGroup]="signupForm" (ngSubmit)="signUp()">
+
+    <input
+        type="text"
+        placeholder="Username"
+        formControlName="username">
+
+    @if (signupForm.get('username')?.touched &&
+          signupForm.get('username')?.invalid) {
+
+        @if (signupForm.get('username')?.errors?.['required']) {
+            <small>Username is required</small>
+        }
+
+        @if (signupForm.get('username')?.errors?.['minlength']) {
+            <small>Username must be at least 3 characters</small>
+        }
+    }
+
+    <br>
+
+    <input
+        type="email"
+        placeholder="Email"
+        formControlName="email">
+
+    @if (signupForm.get('email')?.touched &&
+          signupForm.get('email')?.invalid) {
+
+        @if (signupForm.get('email')?.errors?.['required']) {
+            <small>Email is required</small>
+        }
+
+        @if (signupForm.get('email')?.errors?.['email']) {
+            <small>Invalid email format</small>
+        }
+    }
+
+    <br>
+
+    <input
+        type="password"
+        placeholder="Password"
+        formControlName="password">
+
+    @if (signupForm.get('password')?.touched &&
+          signupForm.get('password')?.invalid) {
+
+        @if (signupForm.get('password')?.errors?.['required']) {
+            <small>Password is required</small>
+        }
+
+        @if (signupForm.get('password')?.errors?.['minlength']) {
+            <small>Password must be at least 6 characters</small>
+        }
+    }
+
+    <br>
+
+    <button type="submit">
+        Sign Up
+    </button>
+
+</form>

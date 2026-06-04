@@ -5,6 +5,9 @@ import { take } from 'rxjs';
 import { TaskList } from './Components/TaskList/taskList';
 import { Login } from './Components/Login/login';
 import { guard } from './Components/Login/guard';
+import { SignUp } from './Components/SignUp/signup';
+
+
 
 export const routes: Routes = [
     {
@@ -31,5 +34,10 @@ export const routes: Routes = [
         path: '',
         redirectTo: 'login',
         pathMatch: 'full'
+    },
+
+    { 
+        path: 'signup', 
+        component: SignUp 
     }
 ];

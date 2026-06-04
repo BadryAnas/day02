@@ -3,14 +3,38 @@
 
         <h2>Login</h2>
 
-        <input
-            type="text"
-            placeholder="Enter Username"
-            [(ngModel)]="username">
+        <form (ngSubmit)="login()" #loginForm="ngForm">
 
-        <button (click)="login()">
-            Login
-        </button>
+            <input type="text" placeholder="Enter Username" [(ngModel)]="username" name="username" required
+                minlength="3" #usernameCtrl="ngModel">
+
+            @if (usernameCtrl.invalid && usernameCtrl.touched) {
+            @if (usernameCtrl.errors?.['required']) {
+            <small class="error">Username is required</small>
+            }
+            @if (usernameCtrl.errors?.['minlength']) {
+            <small class="error">Username must be at least 3 characters</small>
+            }
+            }
+
+
+            <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password" required
+                minlength="6" #passwordCtrl="ngModel">
+
+            @if (passwordCtrl.invalid && passwordCtrl.touched) {
+            @if (passwordCtrl.errors?.['required']) {
+            <small class="error">Password is required</small>
+            }
+            @if (passwordCtrl.errors?.['minlength']) {
+            <small class="error">Password must be at least 6 characters</small>
+            }
+            }
+
+
+            <button (click)="login()" [disabled]="loginForm.invalid">
+                Login
+            </button>
+        </form>
 
     </div>
 </div>
